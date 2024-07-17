@@ -1,12 +1,12 @@
-from langchain_community.llms import OpenAI
-from langchain.chains import RetrievalQA
+# from langchain_community.llms import OpenAI
+# from langchain.chains import RetrievalQA
 from langchain_community.vectorstores import FAISS
 from langchain_core.vectorstores import VectorStoreRetriever
 from langchain.chains import create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_openai import AzureChatOpenAI
-from langchain_community.vectorstores.azuresearch import AzureSearch
+# from langchain_community.vectorstores.azuresearch import AzureSearch
 import os
 
 from langchain_community.retrievers import (
@@ -19,9 +19,9 @@ class Chatbot:
         self.llm = AzureChatOpenAI(
             azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
             api_key=os.getenv("AZURE_OPENAI_API_KEY"),
-            api_version="2023-05-15",
+            api_version=os.getenv("AZURE_OPENAI_VERSION"),
             azure_deployment=os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME"),
-            model="gpt-35-turbo",
+            model=os.getenv("AZURE_OPENAI_MODEL"),
             temperature=0,
         )
 
