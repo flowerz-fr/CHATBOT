@@ -12,16 +12,23 @@
 <body>
 	<div class="chatBot">
 		<header>
-			<h2>ChatBot ORANO-DS</h2>
+			<div id="outer-header-title">
+				<div id="header-title">
+					<h2>ChatBot ORANO DS</h2>
+					<h5>Données de base pour le démantèlement</h5>
+				</div>
+			</div>
+			
+			<img id="header-img" src="http://127.0.0.1:8000/logo"  alt="Logo Orano" width="100"/>
 		</header>
 		<ul class="chatbox">
 			<li class="chat-incoming chat">
-				<p>Est-ce que vous avez des question concernant les investigations </p>
+				<p>Salut ! Comment puis-je vous aider aujourd'hui ?</p>
 			</li>
 		</ul>
 		<div class="chat-input">
 			<textarea rows="0" cols="17"
-					placeholder="..."></textarea>
+					placeholder="Entrez un message..."></textarea>
 			<button id="sendBTN">Envoyer</button>
 		</div>
 	</div>
