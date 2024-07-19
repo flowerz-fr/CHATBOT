@@ -40,13 +40,14 @@ const generateResponse = (incomingChatLi) => {
             const rightDiv = document.createElement("div");
             rightDiv.classList.add("right");
 
-            rightDiv.innerHTML =
-                `<img class="result-img" src="http://127.0.0.1:8000/data1" width="200"/><img class="result-img" src="http://127.0.0.1:8000/data2" width="200"/>`;
+            // rightDiv.innerHTML =
+            //     `<img class="result-img" src="http://127.0.0.1:8000/data1" width="200"/><img class="result-img" src="http://127.0.0.1:8000/data2" width="200"/>`;
 
             
             
             data.sources.forEach(source => {
                 const p = document.createElement("p")
+                p.classList.add("source")   
                 p.innerHTML = source
                 rightDiv.append(p)
             });
