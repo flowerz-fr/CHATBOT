@@ -60,7 +60,7 @@ class Chatbot:
         # Create the json_result
         json_result = {
             "input": result['input'],
-            "sources": extract_list_sources(result),
+            "sources": extract_list_sources(result)[:4],
             "answer": result['answer']
         }
     
