@@ -8,6 +8,7 @@ from chat import Chatbot
 logo = "logo.jpeg"
 data1 = "data1.jpg"
 data2 = "data2.jpg"
+# images = ['data1.jpg', 'data2.jpg']
 
 
 chatBot = Chatbot()
@@ -39,6 +40,10 @@ async def get_logo():
 async def get_data1():
     return FileResponse(data1)
 
+
+@app.get("/data2")
+async def get_data2():
+    return FileResponse(data2)
 
 @app.get("/data2")
 async def get_data2():

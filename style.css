@@ -39,6 +39,7 @@ header {
     flex-direction: row;
     color: #000;
     justify-content: space-evenly;
+    align-items: center;
 }
 
 #header-title {

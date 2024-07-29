@@ -1,6 +1,7 @@
 import fitz  # PyMuPDF
 import re
 import os
+import base64
 
 class Document:
     def __init__(self, source: str):
@@ -9,6 +10,9 @@ class Document:
         self.toc_index = None
         self.references_index = None
         self.page_content = []
+        self.base64_images = self.extract_images_from_pdf_to_base64()
+        
+        
     
     def get_pdf_file(self):
         doc = fitz.open(self.source)
@@ -24,6 +28,35 @@ class Document:
     #             line = f'<a href="#figure"></a>{line}'
     #         linked_lines.append(line)
     #     return linked_lines
+    # --------------------------------------------------------
+    
+    def extract_images_from_pdf_to_base64(self):
+        base64_strings_img = []
+
+        # Open the PDF file
+        pdf_file = self.doc
+        
+        # Iterate over each page in the PDF
+        for page_index in range(len(pdf_file)):
+            page = pdf_file[page_index]
+            image_list = page.get_images(full=True)
+            
+            # Iterate over each image in the page
+            for image_index, img in enumerate(image_list, start=1):
+                xref = img[0]
+                base_image = pdf_file.extract_image(xref)
+                image_bytes = base_image["image"]
+                
+                # Encode the image bytes to base64
+                base64_string = base64.b64encode(image_bytes).decode('utf-8')
+                base64_strings_img.append(base64_string)
+        
+        # Remove duplicate base64 strings
+        base64_strings_img = list(set(base64_strings_img))
+        
+        return base64_strings_img
+    
+    # --------------------------------------------------------
 
     def merge_lines_content(self, lines):
         """Merge lines where a line does not end with a period and the next starts with a lowercase letter."""
@@ -152,7 +185,8 @@ class Document:
             "Confidentiality": confidentiality,
             "Perimeter": perimeter,
             "Investigation Number": investigation_number,
-            "Source": source    
+            "Source": source,
+            "images_base64": self.base64_images
         }
         return metadata
 
