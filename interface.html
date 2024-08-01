@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -33,6 +33,79 @@
 		</div>
 	</div>
 	<script src="script.js" defer></script>
+</body>
+
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ChatBot</title>
+	<link id="themeStylesheet" rel="stylesheet" href="styleLight.css">
+	<link rel="stylesheet" href="style.css">
+	<link rel="shortcut icon" href="./LogoOnglet.png"
+		type="image/x-icon">
+</head>
+
+<body>
+	<header>
+		<div class="logo-orano">
+			<img id="header-img" src="./logoOrano.png"
+				alt="Logo Orano" width="150" />
+		</div>
+		<div id="outer-header-title">
+			<div id="header-title">
+				<h2>ChatBot ORANO DS</h2>
+				<h5>Données de base pour le démantèlement</h5>
+			</div>
+		</div>
+		<div class="header-toggle">
+			<div style="display: flex; flex-direction: column;">
+				<label class="switch">
+					<input type="checkbox" id="toggleTheme">
+					<span class="slider"></span>
+				</label>
+				<span id="currentTheme">Light</span>
+			</div>
+		</div>
+	</header>
+	<div class="chatBot">
+		<div class="chatbox">
+			<div class="chat-incoming chat">
+				<div class="chatbox-logo">
+					<img src="./logoLight.jpg" alt="Logo ChatBot"
+						class="logo">
+					<span>ChatBot</span>
+				</div>
+				<div class="message">
+					<p>Bonjour !</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer>
+		<div class="chat-input">
+			<textarea rows="0" cols="17" placeholder="Saisissez votre message"></textarea>
+			<div class="sendButtonContainer">
+				<button id="sendBTN">
+					<div class="sendBtnIcon">
+						<svg class="sendBtnIconSBV" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+							<path fill="var(--ci-primary-color, currentColor)" d="M474.444,19.857a20.336,20.336,0,0,0-21.592-2.781L33.737,213.8v38.066l176.037,70.414L322.69,496h38.074l120.3-455.4A20.342,20.342,0,0,0,474.444,19.857ZM337.257,459.693,240.2,310.37,389.553,146.788l-23.631-21.576L215.4,290.069,70.257,232.012,443.7,56.72Z" class="ci-primary"/>
+						</svg>						  
+						Envoyer
+					</div>
+				</button>
+			</div>
+		</div>
+		<div>
+			<span>(ChatBot™ by™ Clément™ et™ Gaëtan™)™</span>
+		</div>
+	</footer>
+	<script src="script.js" defer></script>
+	<script src="toggleTheme.js" defer></script>
 </body>
 
 </html>

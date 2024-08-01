@@ -7,12 +7,28 @@ const chatbox = document.querySelector(".chatbox");
 let userMessage;
 
 const createChatLi = (message, className) => {
-    const chatLi = document.createElement("li");
+    const chatLi = document.createElement("div");
     chatLi.classList.add("chat", className);
-    chatLi.innerHTML = `<p>${message}</p>`;
+    chatLi.innerHTML = `<div class="message"><p>${message}</p></div>`;
     
     return chatLi;
 };
+
+const createProfileBot = () => {
+    const profile = document.createElement("div");
+    profile.classList.add("chatbox-logo");
+    profile.innerHTML = `<img src="./logoLight.jpg" alt="Logo ChatBot"
+						class="logo">
+					<span>ChatBot</span>`;
+    return profile
+}
+
+const createProfileUser = () => {
+    const profile = document.createElement("div");
+    profile.classList.add("chatbox-logo");
+    profile.innerHTML = `<span>Vous</span>`;
+    return profile
+}
 
 const generateResponse = (incomingChatLi) => {
     const API_URL = "http://127.0.0.1:8000/ask";
@@ -67,11 +83,15 @@ const handleChat = () => {
     if (!userMessage) {
         return;
     }
-    chatbox.appendChild(createChatLi(userMessage, "chat-outgoing"));
+    chatInput.value = "";
+    const outgoingChatLi = createChatLi(userMessage, "chat-outgoing")
+    outgoingChatLi.append(createProfileUser());
+    chatbox.appendChild(outgoingChatLi);
     chatbox.scrollTo(0, chatbox.scrollHeight);
 
     setTimeout(() => {
         const incomingChatLi = createChatLi("......", "chat-incoming");
+        chatbox.appendChild(createProfileBot())
         chatbox.appendChild(incomingChatLi);
         chatbox.scrollTo(0, chatbox.scrollHeight);
         generateResponse(incomingChatLi);
@@ -79,3 +99,9 @@ const handleChat = () => {
 };
 
 sendChatBtn.addEventListener("click", handleChat);
+
+document.addEventListener("keyup", function(event) {
+    if (event.key === "Enter") {
+        handleChat();
+    }
+  });

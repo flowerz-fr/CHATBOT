@@ -1,0 +1,38 @@
+.chatBot {
+    background-color: #f4F4f4;
+}
+
+.chat-outgoing .message {
+    background-color: #00677F;
+    color: #fff;
+}
+
+.chat-incoming .message {
+    background-color: #fff;
+    color: #000;
+}
+
+.chat-incoming .right {
+    border-color: #353f4f;
+}
+
+.chat-input {
+    background-color: white;
+}
+
+::placeholder {
+    color: #000;
+}
+
+#sendBTN {
+    color: black;
+    background-color: white;
+}
+
+.chatbox-logo, .right {
+    color: #000;
+}
+
+.source {
+    color: black;
+}
