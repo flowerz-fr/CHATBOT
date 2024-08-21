@@ -40,10 +40,10 @@ class AzureBlobStorageManager:
         except Exception as e:
             print(f"An error occurred while trying to delete the container: {str(e)}")
 
-    def upload_directory(self, source=None, destination=""):
+    def upload_directory(self, source=None, destination="", local_folder=""):
         try:
             if source is None:
-                source = os.path.join(os.getcwd(), "PDF")
+                source = os.path.join(os.getcwd(), local_folder)
             
             if not os.path.exists(source):
                 print(f"The source directory '{source}' does not exist.")
@@ -101,6 +101,9 @@ class AzureBlobStorageManager:
                 print(f"Downloaded to: {file_path}")
         except Exception as e:
             print(f"An error occurred while downloading blobs: {str(e)}")
+            
+    def get_download_folder_path(self):
+        return os.path.abspath(self.container_files)
 
 # Example:
 
