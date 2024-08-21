@@ -1,9 +1,6 @@
-import os
-# from azure.search.documents.indexes import SearchIndexClient
-# from azure.core.credentials import AzureKeyCredential
 from langchain_community.vectorstores.azuresearch import AzureSearch
 from llm_models import AzureOpenAIManager
-# from splitter_manager import DocumentSplitter
+import os
 
 class VectorStoreManager:
     def __init__(self):
@@ -16,8 +13,6 @@ class VectorStoreManager:
     def create_vector_store(self) -> AzureSearch:
         """
         Creates and returns an AzureSearch vector store using Azure OpenAI embeddings.
-
-        :return: An instance of AzureSearch configured with Azure OpenAI embeddings.
         """
         # Create embeddings instance
         embeddings_manager = AzureOpenAIManager()
