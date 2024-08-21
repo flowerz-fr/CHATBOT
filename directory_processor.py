@@ -1,23 +1,19 @@
-import os
+from document_processor import DocumentProcessor
 import pandas as pd
-from Document import Document
+import os
 
-class DatasetBuilder:
+class DirectoryProcessor:
     def __init__(self, start_directory):
         self.start_directory = start_directory
         self.data = []
 
-    @staticmethod
-    def extract_metadata_and_content(document):
+    def process_document(self, file_path):
+        """Process a single document and append its data to the internal list."""
+        processor = DocumentProcessor(file_path)
+        document = processor.process_document()
         metadata = document.get('metadata', {})
         page_content = document.get('page_content', '')
-        return metadata, page_content
 
-    def process_document(self, file_path):
-        # Replace PDFDocumentProcessor with actual document processing implementation
-        processor = Document(file_path)
-        document = processor.process_document()
-        metadata, page_content = self.extract_metadata_and_content(document)
         row = {
             'Title': metadata.get('Title'),
             'Version': metadata.get('Version'),
@@ -31,10 +27,16 @@ class DatasetBuilder:
         self.data.append(row)
 
     def process_directory(self):
+        """Process all PDF documents in the directory and return a DataFrame."""
         for root, dirs, files in os.walk(self.start_directory):
             for file in files:
-                if file.endswith('.pdf'):  # Adjust the file extension as needed
+                if file.endswith('.pdf'):
                     file_path = os.path.join(root, file)
                     self.process_document(file_path)
         return pd.DataFrame(self.data)
-    
+
+# Example:
+
+# # To process all PDFs in a directory
+# directory_processor = DirectoryProcessor('path/to/the/directory')
+# dataset = directory_processor.process_directory()

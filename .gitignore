@@ -161,3 +161,10 @@ cython_debug/
 .azure
 *.pdf
 *.json
+
+# ignore folder
+__pycache__/
+archives/
+downloaded_files/
+frontend/
+PDF

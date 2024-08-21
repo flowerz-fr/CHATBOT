@@ -2,10 +2,11 @@ import os
 from azure.storage.blob import BlobServiceClient
 
 class DirectoryClient:
+    
   def __init__(self, connection_string, container_name):
     service_client = BlobServiceClient.from_connection_string(connection_string)
     self.client = service_client.get_container_client(container_name)
-
+ 
   def upload(self, source, dest):
     '''
     Upload a file or directory to a path inside the container
