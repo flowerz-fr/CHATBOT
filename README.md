@@ -29,15 +29,44 @@ The interface allows users to ask questions and receive relevant, accurate and c
 	```bash
    pip install -r requirements.txt
    ```
-4. Dowloading and indexing blob files.
+4. Initialize API keys in a new .env file
 	```bash
-   pip install -r requirements.txt
+# Chat model
+AZURE_OPENAI_API_KEY=<API_key>
+AZURE_OPENAI_DEPLOYMENT_ID=<endpoint>
+AZURE_OPENAI_ENDPOINT=https://<endpoint>.openai.azure.com/
+AZURE_OPENAI_DEPLOYMENT_NAME=<deployement_name>
+AZURE_OPENAI_MODEL=<model>
+AZURE_OPENAI_VERSION=<version>
+# ------------------------------------------------------------------------------------------------
+# Embedding model 
+AZURE_OPENAI_EMB_API_KEY=<API_key>
+AZURE_OPENAI_EMB_ENDPOINT=https://<endpoint>.openai.azure.com/
+AZURE_OPENAI_EMB_DEPLOYMENT_ID=<endpoint>
+AZURE_OPENAI_EMB_DEPLOYMENT_NAME=<deployement_name>
+AZURE_OPENAI_EMB_MODEL=<model>
+AZURE_OPENAI_EMB_VERSION=<version>
+# ------------------------------------------------------------------------------------------------
+# Azure Blob-Storage
+AZURE_STORAGE_API_KEY=<API_key>
+AZURE_STORAGE_DEPLOYEMENT_ID=<endpoint>
+AZURE_STORAGE_ENDPOINT=https://<endpoint>.blob.core.windows.net/
+AZURE_STORAGE_CONTAINER_NAME=<your_container_name>
+AZURE_STORAGE_CONNECTION_STRING="DefaultEndpointsProtocol=https;AccountName<endpoint>;AccountKey=<API_key>;EndpointSuffix=core.windows.net"
+# ------------------------------------------------------------------------------------------------
+# Azure AI-Search
+AZURE_AI_SEARCH_API_KEY=<API_key>
+AZURE_AI_SEARCH_ENDPOINT=https://<endpoint>.search.windows.net/
+AZURE_AI_SEARCH_DEPLOYEMENT_ID=f<endpoint>
+AZURE_AI_SEARCH_SERVICE_NAME=<endpoint>
+AZURE_AI_SEARCH_INDEX_NAME=<your_index_name>
+AZURE_AI_SEARCH_INDEXER_NAME=<your_indexer_name>
    ```
 5. Prepare data in order to be able to interrogate documentation
 	```bash
- 		from data_manager import DataPreparationManager
- 		data_preparation_manager = DataPreparationManager()
- 		data_preparation_manager.download_and_prepare_data()
+ 	from data_manager import DataPreparationManager
+ 	data_preparation_manager = DataPreparationManager()
+ 	data_preparation_manager.download_and_prepare_data()
    ```
 6. Open interface and Run API
 	```bash
