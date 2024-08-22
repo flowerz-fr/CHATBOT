@@ -28,10 +28,6 @@ The interface allows users to ask questions and receive relevant, accurate and c
    # In windows
    python -m venv <venv-name>
    .<env-name>/Scripts/Activate.ps1
-
-   # In linux
-   python -m venv <venv-name>
-   source <env-name>/bin/activate
    ```
 
 4. Install requirements file
