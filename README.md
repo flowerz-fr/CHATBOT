@@ -19,17 +19,26 @@ The interface allows users to ask questions and receive relevant, accurate and c
    ```bash
    git clone https://orano@dev.azure.com/orano/ChatBot%20DAFC/_git/ChatBot%20DAFC
    ```
-2. Create and activate virtual environment
+2. Sing in axure account
    ```bash
-   python -m venv <env-name>
+   Azure:Sign in
+   ```
+3. Create and activate virtual environment
+   ```bash
+   # In windows
+   python -m venv <venv-name>
    .<env-name>/Scripts/Activate.ps1
+
+   # In linux
+   python -m venv <venv-name>
+   source <env-name>/bin/activate
    ```
 
-3. Install requirements file
+4. Install requirements file
 	```bash
    pip install -r requirements.txt
    ```
-4. Initialize API keys in a new .env file
+5. Initialize API keys in a new .env file
 	```bash
    # Chat model
    AZURE_OPENAI_API_KEY=<API_key>
@@ -62,13 +71,13 @@ The interface allows users to ask questions and receive relevant, accurate and c
    AZURE_AI_SEARCH_INDEX_NAME=<your_index_name>
    AZURE_AI_SEARCH_INDEXER_NAME=<your_indexer_name>
    ```
-5. Prepare data in order to be able to interrogate documentation
+6. Prepare data in order to be able to interrogate documentation
 	```bash
  	from data_manager import DataPreparationManager
  	data_preparation_manager = DataPreparationManager()
  	data_preparation_manager.download_and_prepare_data()
    ```
-6. Open interface and Run API
+7. Open interface and Run API
 	```bash
 	uvicorn main:app --reload
  	start .\interface.html
