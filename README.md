@@ -1,40 +1,40 @@
 # Documentation Interrogation Chatbot-DAFC
 
-## Overview
+## Aperçu
 
-Chatbot-DAFC is a tool designed to help users find and extract information investigation documentation stocke in a dataset.\
-The interface allows users to ask questions and receive relevant, accurate and consist responses based on the content of the documentation.\
-*A specific type of documentation has been indexed*
+Chatbot-DAFC est un outil conçu pour aider les utilisateurs à rechercher et extraire des informations à partir de la documentation d'investigation stockée dans un ensemble de données.\
+L'interface permet aux utilisateurs de poser des questions et de recevoir des réponses pertinentes, précises et cohérentes basées sur le contenu de la documentation.\
+*Un type spécifique de documentation a été indexé.*
 
-
-### Prerequisites
+### Prérequis
 
 - Python 3.12.3
-- pip (Python package installer)
-- Azure account and services API keys (Azure OpenAI, BlobStorage, Azure Search)
+- pip (installateur de paquets Python)
+- Compte Azure et clés API des services (Azure OpenAI, BlobStorage, Azure Search)
 
-### Steps
 
-1. Clone the repository:
+### Étapes
+
+1. Cloner le Repo :
    ```bash
    git clone https://orano@dev.azure.com/orano/ChatBot%20DAFC/_git/ChatBot%20DAFC
    ```
-2. Sing in axure account
+2. Se connecter au compte Azure :
    ```bash
    Azure:Sign in
    ```
-3. Create and activate virtual environment
+3. Créer et activer un environnement virtuel :
    ```bash
    # In windows
    python -m venv <venv-name>
    .<env-name>/Scripts/Activate.ps1
    ```
 
-4. Install requirements file
+4. Installer le fichier des dépendances :
 	```bash
    pip install -r requirements.txt
    ```
-5. Initialize API keys in a new .env file
+5. Initialiser les clés API dans un nouveau fichier .env
 	```bash
    # Chat model
    AZURE_OPENAI_API_KEY=<API_key>
@@ -67,17 +67,17 @@ The interface allows users to ask questions and receive relevant, accurate and c
    AZURE_AI_SEARCH_INDEX_NAME=<your_index_name>
    AZURE_AI_SEARCH_INDEXER_NAME=<your_indexer_name>
    ```
-6. Prepare data in order to be able to interrogate documentation
+6. Préparer les données pour pouvoir interroger la documentation :
 	```bash
  	from data_manager import DataPreparationManager
  	data_preparation_manager = DataPreparationManager()
  	data_preparation_manager.download_and_prepare_data()
    ```
 
-7. Open interface and Run API
+7. Ouvrir l'interface et lancer l'API 
 	```bash
-	uvicorn main:app --reload
  	start .\interface.html
+	uvicorn main:app --reload
    ```
 
 
