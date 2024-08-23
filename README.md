@@ -73,8 +73,25 @@ The interface allows users to ask questions and receive relevant, accurate and c
  	data_preparation_manager = DataPreparationManager()
  	data_preparation_manager.download_and_prepare_data()
    ```
+
 7. Open interface and Run API
 	```bash
 	uvicorn main:app --reload
  	start .\interface.html
    ```
+
+
+## Definitions 
+
+1.  storage_manager.py
+
+| **Functionality**                  | **Description**                                                                                       |
+|------------------------------------|-------------------------------------------------------------------------------------------------------|
+| Initialize Azure Blob Storage Clients | Establish connections to Azure Blob Storage using a connection string and container name from environment variables. |
+| Create and Delete Containers        | Create or delete a specified Azure Blob Storage container, handling cases where the container already exists or does not exist. |
+| Upload a Directory                  | Upload an entire local directory to the specified destination in Azure Blob Storage.                 |
+| List Blobs                          | List all blobs (files) within the specified container.                                               |
+| Download Blobs                      | Download either all blobs or a specific blob from the Azure container to a local directory.          |
+| Get Download Folder Path            | Retrieve the absolute path of the local folder where downloaded files are stored.                   |
+
+
