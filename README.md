@@ -69,6 +69,7 @@ The interface allows users to ask questions and receive relevant, accurate and c
    ```
 6. Prepare data in order to be able to interrogate documentation
 	```bash
+   python
  	from data_manager import DataPreparationManager
  	data_preparation_manager = DataPreparationManager()
  	data_preparation_manager.download_and_prepare_data()
@@ -83,7 +84,7 @@ The interface allows users to ask questions and receive relevant, accurate and c
 
 ### Définitions
 
-**storage_manager.py**
+1. **storage_manager.py**
 
 | Fonctionnalité                        | Description                                                                                                        |
 |--------------------------------------|--------------------------------------------------------------------------------------------------------------------|
@@ -94,7 +95,7 @@ The interface allows users to ask questions and receive relevant, accurate and c
 | Télécharger des blobs                   | Télécharger soit tous les blobs, soit un blob spécifique du conteneur Azure vers un répertoire local.                 |
 | Obtenir le chemin du dossier de téléchargement | Récupérer le chemin absolu du dossier local où les fichiers téléchargés sont stockés.                               |
 
-**index_manager.py**
+2. **index_manager.py**
 
 | Fonctionnalité                        | Description                                                                                                         |
 |--------------------------------------|---------------------------------------------------------------------------------------------------------------------|
@@ -103,7 +104,7 @@ The interface allows users to ask questions and receive relevant, accurate and c
 | Supprimer un index                    | Supprimer un index existant d'Azure Search.                                                                         |
 | Obtenir le nom de l'index              | Récupérer le nom de l'index Azure Search actuel à partir des variables d'environnement.                              |
 
-**directory_processor.py**
+3. **directory_processor.py**
 
 | Fonctionnalité                        | Description                                                                                                         |
 |--------------------------------------|---------------------------------------------------------------------------------------------------------------------|
@@ -111,7 +112,7 @@ The interface allows users to ask questions and receive relevant, accurate and c
 | Traiter un document                   | Traiter un document unique, extraire les métadonnées et le contenu, et ajouter ces informations sous forme de dictionnaire à la liste interne des données. |
 | Traiter un répertoire                 | Parcourir tous les sous-répertoires et fichiers dans le répertoire de départ, traiter chaque document PDF, et retourner les données accumulées sous forme de DataFrame. |
 
-**llm_models.py**
+4. **llm_models.py**
 
 | Fonctionnalité                        | Description                                                                                                         |
 |--------------------------------------|---------------------------------------------------------------------------------------------------------------------|
@@ -119,21 +120,21 @@ The interface allows users to ask questions and receive relevant, accurate and c
 | Créer une instance AzureChatOpenAI    | Créer et retourner une instance d'`AzureChatOpenAI`, configurée avec les informations d'identification et les détails Azure OpenAI provenant des variables d'environnement. |
 | Créer une instance AzureOpenAIEmbeddings | Créer et retourner une instance d'`AzureOpenAIEmbeddings`, configurée avec les détails Azure OpenAI pour les embeddings en utilisant les variables d'environnement. |
 
-**loader_manager.py**
+5. **loader_manager.py**
 
 | Fonctionnalité                        | Description                                                                                                         |
 |--------------------------------------|---------------------------------------------------------------------------------------------------------------------|
 | Initialiser DocumentLoaderManager     | Initialiser le gestionnaire avec un DataFrame et un nom de colonne spécifié avec le texte à charger.    |
 | Charger des documents depuis le DataFrame | Charger des documents depuis le DataFrame. Vérifie si le DataFrame est vide ou si la colonne spécifiée existe avant le chargement.|
 
-**splitter_manager.py**
+6. **splitter_manager.py**
 
 | Fonctionnalité                        | Description                                                                                                         |
 |--------------------------------------|---------------------------------------------------------------------------------------------------------------------|
 | Initialiser DocumentSplitter          | Initialiser le `DocumentSplitter` avec les paramètres spécifiés.|
 | Diviser des documents                 | Diviser les documents fournis en morceaux plus petits. |
 
-**vector_store_manager.py**
+7. **vector_store_manager.py**
 
 | Fonctionnalité                        | Description                                                                                                         |
 |--------------------------------------|---------------------------------------------------------------------------------------------------------------------|
@@ -141,7 +142,7 @@ The interface allows users to ask questions and receive relevant, accurate and c
 | Créer un magasin de vecteurs          | Créer et retourner une instance de vecteurs. |
 | Ajouter des documents                | Ajouter une liste de documents au vecteurs.            |
 
-**retriever_manager.py**
+8. **retriever_manager.py**
 
 | Fonctionnalité                        | Description                                                                                                         |
 |--------------------------------------|---------------------------------------------------------------------------------------------------------------------|
@@ -149,9 +150,12 @@ The interface allows users to ask questions and receive relevant, accurate and c
 | Créer un récupérateur                 | Créer et retourner une instance d'`AzureAISearchRetriever`, en s'assurant que le nom de l'index est fourni et configuré avec des paramètres spécifiques. |
 | Obtenir le récupérateur               | Retourner l'instance d'`AzureAISearchRetriever` pour l'utilisation dans la récupération de documents.|
 
-**QA_manager.py**
+9. **QA_manager.py**
 
 | Fonctionnalité                        | Description                                                                                                         |
 |--------------------------------------|---------------------------------------------------------------------------------------------------------------------|
 | Initialiser QuestionAnswerManager     | Initialiser `QuestionAnswerManager` avec des instances de `AzureOpenAIManager`, `ManagerRetrieve`, et `PromptManager`. Créer des chaînes pour le traitement et la récupération de documents. |
 | Poser une question                   | Traiter une question en utilisant les chaînes initialisées et retourner le résultat sous forme d'un objet JSON.|
+
+
+
