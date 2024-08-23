@@ -5,7 +5,6 @@ class ManagerRetrieve:
     def __init__(self):
         """
         Initializes the ManagerRetrieve with the AzureAISearchRetriever.
-        Raises exceptions if there is an issue with the environment variable or initialization.
         """
         try:
             # Get the index name from environment variables
@@ -20,7 +19,6 @@ class ManagerRetrieve:
         Creates an AzureAISearchRetriever instance.
 
         :return: An instance of AzureAISearchRetriever.
-        :raises ValueError: If the index_name is invalid or not set.
         """
         if not self.index_name:
             raise ValueError("Index name cannot be empty.")
@@ -34,7 +32,5 @@ class ManagerRetrieve:
     def get_retriever(self):
         """
         Returns the AzureAISearchRetriever instance.
-
-        :return: AzureAISearchRetriever instance.
         """
         return self.retriever_instance

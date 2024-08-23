@@ -32,7 +32,6 @@ class VectorStoreManager:
         Adds documents to the AzureSearch vector store.
 
         :param documents: A list of documents to be added to the vector store.
-        :raises RuntimeError: If an error occurs while adding documents.
         """
                 
         try:

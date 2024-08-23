@@ -17,8 +17,7 @@ class DocumentLoaderManager:
         Loads documents from the DataFrame using DataFrameLoader.
 
         :return: A list of documents loaded from the DataFrame.
-        :raises ValueError: If the DataFrame is empty or the specified column is not found.
-        :raises RuntimeError: If there is an error during the document loading process.
+        :raises ValueError: If the DataFrame is empty or the specified column is not found.    :raises RuntimeError: If there is an error during the document loading process.
         """
         if self.data.empty:
             raise ValueError("The DataFrame is empty.")

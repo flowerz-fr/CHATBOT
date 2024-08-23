@@ -28,7 +28,6 @@ class DocumentSplitter:
 
         :param documents: A list of documents to be split.
         :return: A list of split document chunks.
-        :raises RuntimeError: If an error occurs during the splitting process.
         """
         try:
             splits = self.text_splitter.split_documents(documents)
